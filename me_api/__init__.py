@@ -27,7 +27,9 @@ def create_app(config):
     app.config.from_object(config)
 
     from .middleware.github import github_api
+    from .middleware.medium import medium_api
 
     app.register_blueprint(github_api)
+    app.register_blueprint(medium_api)
 
     return app
