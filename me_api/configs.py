@@ -11,8 +11,8 @@ class Config(object):
     cwd = path.abspath(path.dirname(__file__))
     with open(path.join(cwd, 'me.json')) as me:
         me = json.load(me)
-    with open(path.join(cwd, 'module.json')) as module:
-        module = json.load(module)
+    with open(path.join(cwd, 'modules.json')) as modules:
+        modules = json.load(modules)
 
 
 class DevelopConfig(Config):

@@ -11,7 +11,7 @@ from flask import Blueprint, jsonify
 from me_api.configs import Config
 
 
-config = Config.module['modules']['medium']
+config = Config.modules['modules']['medium']
 path, username = config['path'], config['data']['me']
 medium_api = Blueprint('medium', __name__)
 
