@@ -7,7 +7,7 @@ import os
 
 from flask.ext.script import Manager
 
-from me_api import create_app
+from me_api.app import create_app
 from me_api.configs import DevelopConfig, ProductionConfig
 
 
