@@ -9,7 +9,8 @@ from flask import Blueprint, jsonify
 from me_api.configs import Config
 
 
-path, username = Config.github['path'],  Config.github['username']
+config = Config.module['modules']['github']
+path, username = config['path'], config['data']['me']
 github_api = Blueprint('github', __name__)
 
 

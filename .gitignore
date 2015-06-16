@@ -14,6 +14,9 @@ temp/
 # database
 *.db
 
+# me-api json file
+*.json
+
 # Belows are from https://github.com/github/gitignore/blob/master/Python.gitignore
 ####################
 # Byte-compiled / optimized / DLL files
