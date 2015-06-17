@@ -9,6 +9,7 @@ import requests
 from flask import Blueprint, jsonify
 
 from me_api.configs import Config
+from me_api.cache import cache
 
 
 config = Config.modules['modules']['medium']
@@ -17,6 +18,7 @@ medium_api = Blueprint('medium', __name__)
 
 
 @medium_api.route(path)
+@cache.cached(timeout=3600)
 def medium():
     response = requests.get(
         'https://medium.com/{0}?format=json'.format(username))

@@ -8,11 +8,14 @@ from flask import Flask
 
 from .middleware.me import me
 from .middleware import github, medium
+from .cache import cache
 
 
 def create_app(config):
     app = Flask(__name__)
     app.config.from_object(config)
+    cache.init_app(app)
+
     modules = config.modules['modules']
     blueprints = {
         'github': github.github_api,

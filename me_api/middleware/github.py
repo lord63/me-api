@@ -7,6 +7,7 @@ import requests
 from flask import Blueprint, jsonify
 
 from me_api.configs import Config
+from me_api.cache import cache
 
 
 config = Config.modules['modules']['github']
@@ -15,6 +16,7 @@ github_api = Blueprint('github', __name__)
 
 
 @github_api.route(path)
+@cache.cached(timeout=300)
 def github():
     # TODO: how to handle exception and error, see issue#1.
     try:
