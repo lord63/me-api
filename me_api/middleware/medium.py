@@ -3,10 +3,8 @@
 
 from __future__ import absolute_import, unicode_literals
 
-import json
-
 import requests
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, json
 
 from me_api.configs import Config
 from me_api.cache import cache
