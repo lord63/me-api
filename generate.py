@@ -72,9 +72,26 @@ def update():
     pass
 
 
-def add():
+def add(module):
     """Add a new module to modules.json."""
-    pass
+    if module not in TEMPLATE.keys():
+        print(
+            "Please choose modules from the following:\n"
+            "\t{0}.".format(', '.join(TEMPLATE.keys()))
+        )
+        return
+    # Read configurations from modules.json then overwrite it.
+    # http://stackoverflow.com/a/2424410/4890577
+    with open(path.join(PATH, 'modules.json'), 'r+') as f:
+        modules = json.load(f)
+        if module in modules.keys():
+            print("{0} has already exist in modules.json".format(module))
+            return
+        modules[module] = config_module(module)
+        f.seek(0)
+        json.dump(modules, f, indent=4)
+        f.truncate()
+        print("Add {0} to modules.json".format(module))
 
 
 if __name__ == '__main__':
@@ -85,7 +102,7 @@ if __name__ == '__main__':
     elif argument == 'update':
         update()
     elif argument == 'add':
-        add()
+        add(sys.argv[2])
     else:
         print("I don't know what you are talking about.\n"
               "Argument should be 'init' or 'update' or 'add'.")
