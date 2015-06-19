@@ -67,11 +67,6 @@ def init():
     print('\nDone: generate modules.json.')
 
 
-def update():
-    """Update the module settings in modules.json."""
-    pass
-
-
 def add():
     """Add a new module to modules.json."""
 
@@ -104,10 +99,8 @@ if __name__ == '__main__':
 
     if argument == 'init':
         init()
-    elif argument == 'update':
-        update()
     elif argument == 'add':
         add()
     else:
         print("I don't know what you are talking about.\n"
-              "Argument should be 'init' or 'update' or 'add'.")
+              "Argument should be 'init' or 'add'.")
