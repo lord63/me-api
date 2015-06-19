@@ -56,7 +56,7 @@ def init():
     chosen_modules = get_input(
         "Please choose modules from the following:\n"
         "\t{0}.\n"
-        "Seperate then with a space: ".format(', '.join(TEMPLATE.keys()))
+        "Seperate with a space: ".format(', '.join(TEMPLATE.keys()))
     ).split()
     with open(path.join(PATH, 'modules.json'), 'w') as f:
         modules = defaultdict(dict)
@@ -72,26 +72,31 @@ def update():
     pass
 
 
-def add(module):
+def add():
     """Add a new module to modules.json."""
-    if module not in TEMPLATE.keys():
-        print(
-            "Please choose modules from the following:\n"
-            "\t{0}.".format(', '.join(TEMPLATE.keys()))
-        )
-        return
+
     # Read configurations from modules.json then overwrite it.
     # http://stackoverflow.com/a/2424410/4890577
     with open(path.join(PATH, 'modules.json'), 'r+') as f:
         modules = json.load(f)
-        if module in modules.keys():
-            print("{0} has already exist in modules.json".format(module))
+        not_configed = (set(TEMPLATE.keys()) -
+                        set(modules['modules'].keys()))
+        if not not_configed:
+            print("You've used all the available modules.")
             return
-        modules[module] = config_module(module)
+        else:
+            chosen_modules = get_input(
+                "Please choose modules from the following:\n"
+                "\t{0}.\n"
+                "Seperate with a space: ".format(', '.join(not_configed))
+            ).split()
+            for module in chosen_modules:
+                print("\nConfig {0} module...".format(module))
+                modules['modules'][module] = config_module(module)
         f.seek(0)
         json.dump(modules, f, indent=4)
         f.truncate()
-        print("Add {0} to modules.json".format(module))
+        print("\nAdd {0} to modules.json".format(', '.join(chosen_modules)))
 
 
 if __name__ == '__main__':
@@ -102,7 +107,7 @@ if __name__ == '__main__':
     elif argument == 'update':
         update()
     elif argument == 'add':
-        add(sys.argv[2])
+        add()
     else:
         print("I don't know what you are talking about.\n"
               "Argument should be 'init' or 'update' or 'add'.")
