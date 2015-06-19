@@ -35,12 +35,13 @@ TEMPLATE = {
 def config_module(module):
     """Config module from user input."""
     default_conf = TEMPLATE[module]
-    for key, value in default_conf.items():
+    default_conf['path'] = get_input(default_conf['path'])
+    for key, value in default_conf['data'].items():
         if isinstance(value, dict):
             for inner_key, inner_value in value.items():
-                default_conf[key][inner_key] = get_input(inner_value)
+                default_conf['data'][key][inner_key] = get_input(inner_value)
         else:
-            default_conf[key] = get_input(value)
+            default_conf['data'][key] = get_input(value)
     return default_conf
 
 
