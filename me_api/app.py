@@ -7,7 +7,7 @@ from __future__ import absolute_import, unicode_literals
 from flask import Flask
 
 from .middleware.me import me
-from .middleware import github, medium
+from .middleware import github, keybase, medium
 from .cache import cache
 
 
@@ -19,6 +19,7 @@ def create_app(config):
     modules = config.modules['modules']
     blueprints = {
         'github': github.github_api,
+        'keybase': keybase.keybase_api,
         'medium': medium.medium_api
     }
 

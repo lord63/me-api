@@ -23,6 +23,12 @@ TEMPLATE = {
             "me": "Input the username(e.g. lord63): "
         }
     },
+    "keybase": {
+        "path": "Input the path(e.g. /keybase): ",
+        "data": {
+            "me": "Input the username(e.g. lord63): "
+        }
+    },
     "medium": {
         "path": "Input the path(e.g. /medium): ",
         "data": {
