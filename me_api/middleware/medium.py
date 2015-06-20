@@ -18,7 +18,13 @@ medium_api = Blueprint('medium', __name__)
 @medium_api.route(path)
 @cache.cached(timeout=3600)
 def medium():
-    response = requests.get(
-        'https://medium.com/{0}?format=json'.format(username))
-    return jsonify(
-        medium=json.loads(response.text[16:])['payload']['latestPosts'])
+    try:
+        response = requests.get(
+            'https://medium.com/{0}?format=json'.format(username))
+    except requests.RequestException as error:
+        return jsonify(error_message=str(error.message))
+    if response.status_code == 200:
+        return jsonify(
+            medium=json.loads(response.text[16:])['payload']['latestPosts'])
+    else:
+        return jsonify(status_code=response.status_code)
