@@ -16,7 +16,7 @@ class MeAPITestCase(unittest.TestCase):
 
     def test_index(self):
         rv = self.app.get('/')
-        assert 'me' in json.loads(rv.data).keys()
-        assert 'routers' in json.loads(rv.data).keys()
+        assert 'me' in json.loads(rv.data.decode()).keys()
+        assert 'routers' in json.loads(rv.data.decode()).keys()
         assert (len(TestingConfig.modules['modules'].keys()) ==
-                len(json.loads(rv.data)['routers']))
+                len(json.loads(rv.data.decode())['routers']))
