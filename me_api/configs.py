@@ -8,6 +8,8 @@ from os import path
 
 
 class Config(object):
+    CACHE_TYPE = 'simple'
+
     cwd = path.abspath(path.dirname(__file__))
     with open(path.join(cwd, 'me.json')) as me:
         me = json.load(me)
@@ -17,8 +19,11 @@ class Config(object):
 
 class DevelopConfig(Config):
     DEBUG = True
-    CACHE_TYPE = 'simple'
 
 
 class ProductionConfig(Config):
     DEBUG = False
+
+
+class TestingConfig(Config):
+    TESTING = True
