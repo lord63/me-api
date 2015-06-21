@@ -7,8 +7,19 @@ from __future__ import absolute_import, unicode_literals
 from flask import Flask
 
 from .middleware.me import me
-from .middleware import github, keybase, medium
 from .cache import cache
+
+
+def _register_module(app, module):
+    if module == 'github':
+        from .middleware import github
+        app.register_blueprint(github.github_api)
+    elif module == 'keybase':
+        from .middleware import keybase
+        app.register_blueprint(keybase.keybase_api)
+    elif module == 'medium':
+        from .middleware import medium
+        app.register_blueprint(medium.medium_api)
 
 
 def create_app(config):
@@ -17,14 +28,8 @@ def create_app(config):
     cache.init_app(app)
 
     modules = config.modules['modules']
-    blueprints = {
-        'github': github.github_api,
-        'keybase': keybase.keybase_api,
-        'medium': medium.medium_api
-    }
-
     app.register_blueprint(me)
     for module in modules.keys():
-        app.register_blueprint(blueprints[module])
+        _register_module(app, module)
 
     return app
