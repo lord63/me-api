@@ -11,10 +11,16 @@ class Config(object):
     CACHE_TYPE = 'simple'
 
     cwd = path.abspath(path.dirname(__file__))
-    with open(path.join(cwd, 'me.json')) as me:
-        me = json.load(me)
-    with open(path.join(cwd, 'modules.json')) as modules:
-        modules = json.load(modules)
+    if path.exists(path.join(cwd, 'me.json')):
+        with open(path.join(cwd, 'me.json')) as me:
+            me = json.load(me)
+    else:
+        me = json.dumps('{}')
+    if path.exists(path.join(cwd, 'modules.json')):
+        with open(path.join(cwd, 'modules.json')) as modules:
+            modules = json.load(modules)
+    else:
+        modules = json.dumps('{"modules":{}}')
 
 
 class DevelopConfig(Config):
