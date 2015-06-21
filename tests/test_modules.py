@@ -18,3 +18,5 @@ class MeAPITestCase(unittest.TestCase):
         rv = self.app.get('/')
         assert 'me' in json.loads(rv.data).keys()
         assert 'routers' in json.loads(rv.data).keys()
+        assert (len(TestingConfig.modules['modules'].keys()) ==
+                len(json.loads(rv.data)['routers']))
