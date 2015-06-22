@@ -2,3 +2,5 @@ flask
 flask-script
 flask-cache
 requests
+pytest
+pytest-pep8
