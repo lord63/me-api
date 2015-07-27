@@ -11,7 +11,10 @@ from .cache import cache
 
 
 def _register_module(app, module):
-    if module == 'github':
+    if module == 'douban':
+        from .middleware import douban
+        app.register_blueprint(douban.douban_api)
+    elif module == 'github':
         from .middleware import github
         app.register_blueprint(github.github_api)
     elif module == 'keybase':

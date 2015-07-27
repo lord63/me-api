@@ -17,6 +17,14 @@ else:
 PATH = path.join(path.dirname(path.abspath(__file__)), 'me_api')
 # Template file for modules.
 TEMPLATE = {
+    "douban": {
+        "path": "Input the path(e.g. /douban): ",
+        "data": {
+            "me": "Input the username(e.g. xvid73): ",
+            "client_id": "Input the 'API Key' for douban: ",
+            "client_secret": "Input the 'Secret' for douban: "
+        }
+    },
     "github": {
         "path": "Input the path(e.g. /github): ",
         "data": {
