@@ -32,6 +32,15 @@ TEMPLATE = {
             "me": "Input the username(e.g. lord63): "
         }
     },
+    "instagram": {
+        "path": "Input the path(e.g. /photos): ",
+        "data": {
+            "me": "Input the username(e.g. lord63.j): ",
+            "client_id": "Input the 'Client ID' for instagram: ",
+            "client_secret": "Input the 'Client Secret' for instagram: ",
+            "access_token": ""
+        }
+    },
     "keybase": {
         "path": "Input the path(e.g. /keybase): ",
         "data": {

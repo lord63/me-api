@@ -17,6 +17,9 @@ def _register_module(app, module):
     elif module == 'github':
         from .middleware import github
         app.register_blueprint(github.github_api)
+    elif module == 'instagram':
+        from .middleware import instagram
+        app.register_blueprint(instagram.instagram_api)
     elif module == 'keybase':
         from .middleware import keybase
         app.register_blueprint(keybase.keybase_api)
