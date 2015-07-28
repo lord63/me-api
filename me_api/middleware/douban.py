@@ -13,7 +13,12 @@ from me_api.cache import cache
 
 config = Config.modules['modules']['douban']
 path = config['path']
-me, client_secret, access_token, client_id = config['data'].values()
+me, client_secret, access_token, client_id = (
+    config['data']['me'],
+    config['data']['client_secret'],
+    config['data']['access_token'],
+    config['data']['client_id']
+)
 douban_api = Blueprint('douban', __name__, url_prefix=config['path'])
 
 
@@ -47,7 +52,7 @@ def get_access_toekn():
     post_data = {
         'client_id': client_id,
         'client_secret': client_secret,
-        'redirect_url': os.path.join(request.url),
+        'redirect_uri': os.path.join(request.url),
         'grant_type': 'authorization_code',
         'code': authorization_code
     }
