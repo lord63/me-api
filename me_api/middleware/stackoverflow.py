@@ -29,8 +29,9 @@ def stackoverflow():
     if not access_token:
         return 'Need access token, please authenticate you app first.'
     response = requests.get(
-        ("https://api.stackoverflow.com/v1/users/"
-         "self/media/recent/?access_token={0}").format(access_token)
+        ("https://api.stackexchange.com/me/timeline?"
+         "site=stackoverflow&access_token={0}&key={1}").format(
+             access_token, key)
     )
     return jsonify(stackoverflow=response.json())
 
