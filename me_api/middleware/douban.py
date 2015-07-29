@@ -19,7 +19,7 @@ me, client_secret, access_token, client_id = (
     config['data']['access_token'],
     config['data']['client_id']
 )
-douban_api = Blueprint('douban', __name__, url_prefix=config['path'])
+douban_api = Blueprint('douban', __name__, url_prefix=path)
 
 
 @douban_api.route('/')

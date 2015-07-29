@@ -18,7 +18,7 @@ client_secret, access_token, client_id = (
     config['data']['access_token'],
     config['data']['client_id']
 )
-instagram_api = Blueprint('instagram', __name__, url_prefix=config['path'])
+instagram_api = Blueprint('instagram', __name__, url_prefix=path)
 
 
 @instagram_api.route('/')
