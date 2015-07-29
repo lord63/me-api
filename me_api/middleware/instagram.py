@@ -13,8 +13,7 @@ from me_api.cache import cache
 
 config = Config.modules['modules']['instagram']
 path = config['path']
-me, client_secret, access_token, client_id = (
-    config['data']['me'],
+client_secret, access_token, client_id = (
     config['data']['client_secret'],
     config['data']['access_token'],
     config['data']['client_id']

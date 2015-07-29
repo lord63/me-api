@@ -13,8 +13,8 @@ from me_api.cache import cache
 
 config = Config.modules['modules']['stackoverflow']
 path = config['path']
-me, client_secret, access_token, client_id = (
-    config['data']['me'],
+key, client_secret, access_token, client_id = (
+    config['data']['key'],
     config['data']['client_secret'],
     config['data']['access_token'],
     config['data']['client_id']

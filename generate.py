@@ -35,7 +35,6 @@ TEMPLATE = {
     "instagram": {
         "path": "Input the path(e.g. /photos): ",
         "data": {
-            "me": "Input the username(e.g. lord63.j): ",
             "client_id": "Input the 'Client ID' for instagram: ",
             "client_secret": "Input the 'Client Secret' for instagram: ",
             "access_token": ""
@@ -56,7 +55,7 @@ TEMPLATE = {
     "stackoverflow": {
         "path": "Input the path(e.g. /stackoverflow): ",
         "data": {
-            "me": "Input the username(e.g. lord63.j): ",
+            "key": "Input the 'Key' for stackoverflow: ",
             "client_id": "Input the 'Client ID' for stackoverflow: ",
             "client_secret": "Input the 'Client Secret' for stackoverflow: ",
             "access_token": ""
