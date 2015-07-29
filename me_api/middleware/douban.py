@@ -52,7 +52,7 @@ def get_access_toekn():
     post_data = {
         'client_id': client_id,
         'client_secret': client_secret,
-        'redirect_uri': request.url,
+        'redirect_uri': request.base_url,
         'grant_type': 'authorization_code',
         'code': authorization_code
     }
