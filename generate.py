@@ -52,6 +52,15 @@ TEMPLATE = {
         "data": {
             "me": "Input the username(e.g. @lord63): "
         }
+    },
+    "stackoverflow": {
+        "path": "Input the path(e.g. /stackoverflow): ",
+        "data": {
+            "me": "Input the username(e.g. lord63.j): ",
+            "client_id": "Input the 'Client ID' for stackoverflow: ",
+            "client_secret": "Input the 'Client Secret' for stackoverflow: ",
+            "access_token": ""
+        }
     }
 }
 

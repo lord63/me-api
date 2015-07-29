@@ -26,6 +26,9 @@ def _register_module(app, module):
     elif module == 'medium':
         from .middleware import medium
         app.register_blueprint(medium.medium_api)
+    elif module == 'stackoverflow':
+        from .middleware import stackoverflow
+        app.register_blueprint(stackoverflow.stackoverflow_api)
 
 
 def create_app(config):
