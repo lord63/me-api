@@ -104,6 +104,56 @@ the `access_token`.
 6. Restart the server, go to "http://api.foo.com/instagram" and have a check.
 
 
+Keybase
+-------
+
+Short Introduction about Keybase
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Well, Keybase_ is a website, but it's also an open source command line program.
+Let's walk through a terminal example, which illustrates what Keybase does.
+All of this can be embedded into other software, written by anyone. [4]_
+
+Integrate Guide
+^^^^^^^^^^^^^^^
+
+Let's assume that your api site is "http://api.foo.com", you host keybase on
+"/keybase" path.
+
+1. Add keybase middleware to your config file:
+
+    $ python generate add
+
+then choose keybase and follow the prompt.
+
+2. That's all! Restart the server, go to "http://api.foo.com/keybase"
+and have a check.
+
+Medium
+------
+
+Short Introduction about Medium
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Medium_ is a blog-publishing platform. The platform has evolved into a hybrid
+of non-professional contributions and professional, paid contributions, an
+example of social journalism. [5]_
+
+Integrate Guide
+^^^^^^^^^^^^^^^
+
+Let's assume that your api site is "http://api.foo.com", you host medium on
+"/medium" path.
+
+1. Add medium middleware to your config file:
+
+    $ python generate add
+
+then choose medium and follow the prompt.
+
+2. That's all! Restart the server, go to "http://api.foo.com/medium"
+and have a check.
+
 
 .. _Douban: http://www.douban.com/
 .. [1] https://en.wikipedia.org/wiki/Douban
@@ -113,3 +163,7 @@ the `access_token`.
 .. _Instagram: https://instagram.com/
 .. [3] https://en.wikipedia.org/wiki/Instagram
 .. _Instagram Clients: https://instagram.com/developer/clients/manage/
+.. _Keybase: https://keybase.io/
+.. [4] https://keybase.io/
+.. _Medium: https://medium.com/
+.. [5] https://en.wikipedia.org/wiki/Medium_%28service%29
