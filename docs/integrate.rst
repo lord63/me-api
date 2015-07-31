@@ -88,7 +88,7 @@ on "/instagram" path.
 the `Redirect URI` equals to "http://api.foo.com/instagram/login/redirict"
 (site + path + '/login/redirect').
 
-2. Go to the app you just created, take down the `API Key` and `Secret`.
+2. Go to the app you just created, take down the `Client ID` and `Client Secret`.
 
 3. Back to me-api, add the instagram middleware to your config file:
 
@@ -154,6 +154,45 @@ then choose medium and follow the prompt.
 2. That's all! Restart the server, go to "http://api.foo.com/medium"
 and have a check.
 
+Stack Overflow
+--------------
+
+Short Introduction about Stack Overflow
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Stack Overflow`_ serves as a platform for users to ask and answer
+questions, and, through membership and active participation, to vote
+questions and answers up or down and edit questions and answers. The
+website features questions and answers on a wide range of topics in
+computer programming.  [6]_
+
+Integrate Guide
+^^^^^^^^^^^^^^^
+
+Let's assume that your api site is "http://api.foo.com", you host
+stack overflow on "/stackoverflow" path.
+
+1. Go to the `Stack Overflow Apps`_ page and create a new app. Make sure that
+the `OAuth Domain` covers "http://api.foo.com/instagram/login/redirict"
+(site + path + '/login/redirect'). In this example, you can set it as
+"api.foo.com".
+
+2. Go to the app you just created, take down the `Client Id`, `Client Secret`
+and `Key`.
+
+3. Back to me-api, add the stack overflow middleware to your config file:
+
+    $ python generate add
+
+then choose stackoverflow and input the data.
+
+4. Go to "http://api.foo.com/stackoverflow/login", authorize your app to get
+the `access_token`.
+
+5. Take down the `access_token` and fill it in our config file.
+
+6. Restart the server, go to "http://api.foo.com/stackoverflow" and have a check.
+
 
 .. _Douban: http://www.douban.com/
 .. [1] https://en.wikipedia.org/wiki/Douban
@@ -167,3 +206,6 @@ and have a check.
 .. [4] https://keybase.io/
 .. _Medium: https://medium.com/
 .. [5] https://en.wikipedia.org/wiki/Medium_%28service%29
+.. _`Stack Overflow`: http://stackoverflow.com/
+.. [6] https://en.wikipedia.org/wiki/Stack_Overflow
+.. _`Stack Overflow Apps`: http://stackapps.com/apps/oauth/register
