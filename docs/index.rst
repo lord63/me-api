@@ -13,7 +13,6 @@ User's Guide
    :maxdepth: 2
 
    intro
-   install
    quickstart
    integrate
    gallery
