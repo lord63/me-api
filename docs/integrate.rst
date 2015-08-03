@@ -1,3 +1,5 @@
+.. _integrate:
+
 Integrate with your sites
 =========================
 
@@ -27,7 +29,7 @@ Let's assume that your api site is "http://api.foo.com", you host douban on
 
 3. Go 'test user' page in you app, add your douban account as a test user.
 
-4. Back to me-api, add the douban middleware to your config file:
+4. Back to me-api, add the douban middleware to your config file::
 
     $ python generate add
 
@@ -58,7 +60,7 @@ Integrate Guide
 Let's assume that your api site is "http://api.foo.com", you host github on
 "/code" path.
 
-1. Add github middleware to your config file:
+1. Add github middleware to your config file::
 
     $ python generate add
 
@@ -90,7 +92,7 @@ the `Redirect URI` equals to "http://api.foo.com/instagram/login/redirict"
 
 2. Go to the app you just created, take down the `Client ID` and `Client Secret`.
 
-3. Back to me-api, add the instagram middleware to your config file:
+3. Back to me-api, add the instagram middleware to your config file::
 
     $ python generate add
 
@@ -120,7 +122,7 @@ Integrate Guide
 Let's assume that your api site is "http://api.foo.com", you host keybase on
 "/keybase" path.
 
-1. Add keybase middleware to your config file:
+1. Add keybase middleware to your config file::
 
     $ python generate add
 
@@ -145,7 +147,7 @@ Integrate Guide
 Let's assume that your api site is "http://api.foo.com", you host medium on
 "/medium" path.
 
-1. Add medium middleware to your config file:
+1. Add medium middleware to your config file::
 
     $ python generate add
 
@@ -180,7 +182,7 @@ the `OAuth Domain` covers "http://api.foo.com/instagram/login/redirict"
 2. Go to the app you just created, take down the `Client Id`, `Client Secret`
 and `Key`.
 
-3. Back to me-api, add the stack overflow middleware to your config file:
+3. Back to me-api, add the stack overflow middleware to your config file::
 
     $ python generate add
 
