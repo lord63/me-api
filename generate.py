@@ -69,13 +69,8 @@ def config_module(module):
     default_conf = TEMPLATE[module]
     default_conf['path'] = get_input(default_conf['path'])
     for key, value in default_conf['data'].items():
-        if isinstance(value, dict):
-            for inner_key, inner_value in value.items():
-                if inner_key == 'access_token': continue
-                default_conf['data'][key][inner_key] = get_input(inner_value)
-        else:
-            if key == 'access_token': continue
-            default_conf['data'][key] = get_input(value)
+        if key == 'access_token': continue
+        default_conf['data'][key] = get_input(value)
     return default_conf
 
 
