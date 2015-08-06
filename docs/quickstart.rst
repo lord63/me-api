@@ -16,7 +16,7 @@ Install the requirements(recommend using virtualenv)::
 
     $ virtualenv venv
     $ source venv/bin/activate
-    (venv)$ pip install -r dev-requirements.txt
+    (venv)$ pip install -r requirements.txt
 
 Configure Me-api
 ----------------
