@@ -25,9 +25,16 @@ Init the json files::
 
     (venv)$ python generate init
 
-answer several questions according to the prompt.
+Answer several questions according to the prompt. It will help you generate
+`me.json` and `modules.json` in the `me_api/me_api/` folder. When choosing
+middlewares, I suggest using github for demo purpose, very easy to set up,
+only username required.
 
-Now you have a very simple demo, run it using::
+Note that 'path' should have a leading slash(e.g. '/github'), and 'username'
+in the prompt have an '@' should have an '@'.
+
+Once generated the config file, now you have a very simple demo,
+run it using::
 
     (venv)$ python manage.py runserver
 
