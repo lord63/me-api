@@ -15,12 +15,12 @@ class Config(object):
         with open(path.join(cwd, 'me.json')) as me:
             me = json.load(me)
     else:
-        me = json.dumps('{}')
+        me = json.loads('{}')
     if path.exists(path.join(cwd, 'modules.json')):
         with open(path.join(cwd, 'modules.json')) as modules:
             modules = json.load(modules)
     else:
-        modules = json.dumps('{"modules":{}}')
+        modules = json.loads('{"modules":{}}')
 
 
 class DevelopConfig(Config):
