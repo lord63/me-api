@@ -67,10 +67,11 @@ TEMPLATE = {
 def config_module(module):
     """Config module from user input."""
     default_conf = TEMPLATE[module]
-    default_conf['path'] = path.join('/', get_input(default_conf['path']))
+    default_conf['path'] = path.join('/',
+                                     get_input(default_conf['path']).strip())
     for key, value in default_conf['data'].items():
         if key == 'access_token': continue
-        default_conf['data'][key] = get_input(value)
+        default_conf['data'][key] = get_input(value).strip()
     return default_conf
 
 
