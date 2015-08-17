@@ -1,11 +1,15 @@
 # Me-API
 
 Me-api is a personal API built on python and flask that allows for extensible
-integrations. 
+integrations.
 
 It is called me-api, you can build a personal website with it. With me-api,
 you can fetch your photos on instagram, get your tweets from twitter, show
 you code activity on github, list your blog post from medium, and etc.
+
+Me-api gives you the basic API, and it's just a beginning. You can wrapper it
+with tools you familar with, build a personal website, create an app and etc.
+If you have some cool ways play with me-api, remember to share it with us.
 
 ## Documentation
 
