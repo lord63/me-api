@@ -74,9 +74,11 @@ I'll take this one into details::
 Update `me-api/me-api/app.py`, so that we can register the blueprint
 according to the config file, sorted by alphabetical::
 
-    elif module == 'instagram':
-        from .middleware import instagram
-        app.register_blueprint(instagram.instagram_api)
+    middlewares = {
+        ...
+        'instagram': 'me_api.middlewares.instagram:instagram_api',
+        ...
+    }
 
 3. Update the Generate Script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -166,9 +168,11 @@ Here is the custom middleware for my blog: `blog.py`::
 Update `me-api/me-api/app.py`, so that we can register the blueprint
 according to the config file, sorted by alphabetical::
 
-    elif module == 'blog':
-        from .middleware import blog
-        app.register_blueprint(blog.blog_api)
+    middlewares = {
+        ...
+        'blog': 'me_api.middlewares.blog:blog_api',
+        ...
+    }
 
 3. Update the Generate Script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
