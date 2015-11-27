@@ -12,10 +12,10 @@ from me_api.cache import cache
 
 config = Config.modules['modules']['keybase']
 path, username = config['path'], config['data']['me']
-keybase_api = Blueprint('keybase', __name__)
+keybase_api = Blueprint('keybase', __name__, url_prefix=path)
 
 
-@keybase_api.route(path)
+@keybase_api.route('/')
 @cache.cached(timeout=900)
 def keybase():
     try:

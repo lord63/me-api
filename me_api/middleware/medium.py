@@ -12,10 +12,10 @@ from me_api.cache import cache
 
 config = Config.modules['modules']['medium']
 path, username = config['path'], config['data']['me']
-medium_api = Blueprint('medium', __name__)
+medium_api = Blueprint('medium', __name__, url_prefix=path)
 
 
-@medium_api.route(path)
+@medium_api.route('/')
 @cache.cached(timeout=3600)
 def medium():
     try:

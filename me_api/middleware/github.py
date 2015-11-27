@@ -12,10 +12,10 @@ from me_api.cache import cache
 
 config = Config.modules['modules']['github']
 path, username = config['path'], config['data']['me']
-github_api = Blueprint('github', __name__)
+github_api = Blueprint('github', __name__, url_prefix=path)
 
 
-@github_api.route(path)
+@github_api.route('/')
 @cache.cached(timeout=300)
 def github():
     # TODO: how to handle exception and error, see issue#1.
