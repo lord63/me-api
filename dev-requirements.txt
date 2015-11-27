@@ -4,3 +4,4 @@ flask-cache
 requests
 pytest
 pytest-pep8
+redis

@@ -8,7 +8,7 @@ from os import path
 
 
 class Config(object):
-    CACHE_TYPE = 'simple'
+    CACHE_TYPE = 'null'
 
     cwd = path.abspath(path.dirname(__file__))
     if path.exists(path.join(cwd, 'me.json')):
@@ -29,6 +29,7 @@ class DevelopConfig(Config):
 
 class ProductionConfig(Config):
     DEBUG = False
+    CACHE_TYPE = 'redis'
 
 
 class TestingConfig(Config):
