@@ -25,7 +25,7 @@ instagram_api = Blueprint('instagram', __name__, url_prefix=path)
 @cache.cached(timeout=3600)
 def instagram():
     if not access_token:
-        return 'Need access token, please authenticate you app first.'
+        return 'Need access token, please authenticate your app first.'
     response = requests.get(
         ("https://api.instagram.com/v1/users/"
          "self/media/recent/?access_token={0}").format(access_token)

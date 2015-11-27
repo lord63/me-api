@@ -26,7 +26,7 @@ douban_api = Blueprint('douban', __name__, url_prefix=path)
 @cache.cached(timeout=3600)
 def douban():
     if not access_token:
-        return 'Need access token, please authenticate you app first.'
+        return 'Need access token, please authenticate your app first.'
     response = requests.get(
         "https://api.douban.com/shuo/v2/statuses/user_timeline/{0}".format(me),
         headers={'Authorization': 'Bearer ' + access_token})

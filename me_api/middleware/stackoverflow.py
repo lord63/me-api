@@ -27,7 +27,7 @@ stackoverflow_api = Blueprint('stackoverflow', __name__,
 @cache.cached(timeout=3600)
 def stackoverflow():
     if not access_token:
-        return 'Need access token, please authenticate you app first.'
+        return 'Need access token, please authenticate your app first.'
     response = requests.get(
         ("https://api.stackexchange.com/me/timeline?"
          "site=stackoverflow&access_token={0}&key={1}").format(
