@@ -3,28 +3,17 @@
 
 from __future__ import absolute_import
 
-import requests
-from flask import Blueprint, jsonify
+from flask import Blueprint
 
-from me_api.configs import Config
 from me_api.cache import cache
+from me_api.middleware.base import BasicView
+from me_api.middleware.utils import MiddlewareConfig
 
 
-config = Config.modules['modules']['github']
-path, username = config['path'], config['data']['me']
-github_api = Blueprint('github', __name__, url_prefix=path)
-
-
-@github_api.route('/')
-@cache.cached(timeout=300)
-def github():
-    # TODO: how to handle exception and error, see issue#1.
-    try:
-        response = requests.get(
-            'https://api.github.com/users/{0}/events/public'.format(username))
-    except requests.RequestException as error:
-        return jsonify(error_message=str(error.message))
-    if response.status_code == 200:
-        return jsonify(github=response.json())
-    else:
-        return jsonify(status_code=response.status_code)
+config = MiddlewareConfig('github')
+api_url = 'https://api.github.com/users/{0}/events/public'.format(config.me)
+github_api = Blueprint('github', __name__, url_prefix=config.path)
+github_api.add_url_rule(
+    rule='/',
+    view_func=cache.cached(timeout=300)(
+        BasicView.as_view(name='index', url=api_url)))
