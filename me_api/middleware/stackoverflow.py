@@ -7,43 +7,36 @@ import os
 import requests
 from flask import Blueprint, jsonify, request, redirect
 
-from me_api.configs import Config
 from me_api.cache import cache
+from me_api.middleware.utils import MiddlewareConfig
 
 
-config = Config.modules['modules']['stackoverflow']
-path = config['path']
-key, client_secret, access_token, client_id = (
-    config['data']['key'],
-    config['data']['client_secret'],
-    config['data']['access_token'],
-    config['data']['client_id']
-)
+config = MiddlewareConfig('stackoverflow')
 stackoverflow_api = Blueprint('stackoverflow', __name__,
-                              url_prefix=path)
+                              url_prefix=config.path)
 
 
 @stackoverflow_api.route('/')
 @cache.cached(timeout=3600)
 def stackoverflow():
-    if not access_token:
+    if not config.access_token:
         return 'Need access token, please authenticate your app first.'
     response = requests.get(
         ("https://api.stackexchange.com/me/timeline?"
          "site=stackoverflow&access_token={0}&key={1}").format(
-             access_token, key)
+             config.access_token, config.key)
     )
     return jsonify(stackoverflow=response.json())
 
 
 @stackoverflow_api.route('/login')
 def authorization():
-    if access_token:
+    if config.access_token:
         return "You've already had an access token in the config file."
     authorization_url = 'https://stackexchange.com/oauth'
     return redirect(
         '{0}?client_id={1}&redirect_uri={2}&scope=no_expiry'.format(
-            authorization_url, client_id,
+            authorization_url, config.client_id,
             os.path.join(request.url, 'redirect')
         )
     )
@@ -54,8 +47,8 @@ def get_access_toekn():
     authorization_code = request.args.get('code', '')
     token_url = 'https://stackexchange.com/oauth/access_token'
     post_data = {
-        'client_id': client_id,
-        'client_secret': client_secret,
+        'client_id': config.client_id,
+        'client_secret': config.client_secret,
         'redirect_uri': request.base_url,
         'code': authorization_code
     }
