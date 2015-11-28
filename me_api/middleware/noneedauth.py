@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    middleware/base.py
+    middleware/noneedauth.py
     ~~~~~~~~~~~~~~~~~~
 
     The basic pluggable view for those services that don't need access token.
@@ -16,7 +16,7 @@ from flask.views import View
 import requests
 
 
-class BasicView(View):
+class NoNeedAuthView(View):
     methods = ['GET']
 
     def __init__(self, url):
