@@ -3,7 +3,6 @@
 
 from __future__ import absolute_import
 
-
 from flask import Flask
 from werkzeug.utils import import_string
 
@@ -22,7 +21,7 @@ middlewares = {
 
 
 def create_app(config):
-    app = Flask(__name__)
+    app = Flask('me_api')
     app.config.from_object(config)
     cache.init_app(app)
 
