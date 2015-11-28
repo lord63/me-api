@@ -13,7 +13,6 @@ me = Blueprint('me', __name__)
 
 @me.route('/')
 def index():
-    routers = []
-    for module in Config.modules['modules'].values():
-        routers.append(module['path'])
+    routers = [module_config['path'] for module_config in
+               Config.modules['modules'].values()]
     return jsonify(me=Config.me, routers=routers)
