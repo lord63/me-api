@@ -1,12 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+    middleware/utils.py
+    ~~~~~~~~~~~~~~~~~~
+
+    Provide some convenient tools for the middlewares.
+
+"""
+
 from __future__ import absolute_import
 
 from me_api.configs import Config
 
 
 class MiddlewareConfig(object):
+    """Get config for the given middleware."""
     def __init__(self, name):
         self.config = Config.modules['modules'][name]
 

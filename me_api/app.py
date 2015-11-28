@@ -10,6 +10,8 @@ from me_api.middleware.me import me
 from me_api.cache import cache
 
 
+# Third-party middlewares, sorted by alphabetical. The format is:
+# 'name of the service': 'me_api.middleware.module_name:blueprint_name'
 middlewares = {
     'douban': 'me_api.middleware.douban:douban_api',
     'github': 'me_api.middleware.github:github_api',
@@ -26,7 +28,9 @@ def create_app(config):
     cache.init_app(app)
 
     modules = config.modules['modules']
+    # Register the 'me' middleware, it's the index page.
     app.register_blueprint(me)
+    # Register other middlewares according to the config file.
     for module in modules.keys():
         blueprint = import_string(middlewares[module])
         app.register_blueprint(blueprint)
