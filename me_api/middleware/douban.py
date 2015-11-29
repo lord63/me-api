@@ -39,7 +39,7 @@ def authorization():
 
 
 @douban_api.route('/login/redirect')
-def get_access_toekn():
+def get_access_token():
     authorization_code = request.args.get('code', '')
     token_url = 'https://www.douban.com/service/auth2/token'
     post_data = {

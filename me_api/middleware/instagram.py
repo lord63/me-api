@@ -40,7 +40,7 @@ def authorization():
 
 
 @instagram_api.route('/login/redirect')
-def get_access_toekn():
+def get_access_token():
     authorization_code = request.args.get('code', '')
     token_url = 'https://api.instagram.com/oauth/access_token'
     post_data = {
