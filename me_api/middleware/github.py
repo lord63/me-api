@@ -15,5 +15,5 @@ api_url = 'https://api.github.com/users/{0}/events/public'.format(config.me)
 github_api = Blueprint('github', __name__, url_prefix=config.path)
 github_api.add_url_rule(
     rule='/',
-    view_func=cache.cached(timeout=300)(
+    view_func=cache.cached(timeout=60*5)(
         NoNeedAuthView.as_view(name='index', url=api_url)))

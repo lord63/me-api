@@ -16,5 +16,5 @@ api_url = (("https://keybase.io/_/api/1.0/user/lookup.json?"
 keybase_api = Blueprint('keybase', __name__, url_prefix=config.path)
 keybase_api.add_url_rule(
     rule='/',
-    view_func=cache.cached(timeout=86400)(
+    view_func=cache.cached(timeout=60*60*24)(
         NoNeedAuthView.as_view(name='index', url=api_url)))

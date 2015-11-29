@@ -15,7 +15,7 @@ medium_api = Blueprint('medium', __name__, url_prefix=config.path)
 
 
 @medium_api.route('/')
-@cache.cached(timeout=3600)
+@cache.cached(timeout=60*60)
 def index():
     try:
         response = requests.get(
