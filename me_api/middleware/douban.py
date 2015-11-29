@@ -34,7 +34,7 @@ def authorization():
     return redirect(
         '{0}?client_id={1}&redirect_uri={2}&response_type={3}'.format(
             authorization_url, config.client_id,
-            os.path.join(request.url, 'redirect'), 'code')
+            os.path.join(request.base_url, 'redirect'), 'code')
     )
 
 
