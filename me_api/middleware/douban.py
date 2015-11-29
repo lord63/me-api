@@ -19,7 +19,7 @@ douban_api = Blueprint('douban', __name__, url_prefix=config.path)
 @douban_api.route('/')
 @cache.cached(timeout=3600)
 @token_required(config)
-def douban():
+def index():
     response = requests.get(
         ("https://api.douban.com/shuo/v2/statuses/"
          "user_timeline/{0}").format(config.me),

@@ -19,7 +19,7 @@ instagram_api = Blueprint('instagram', __name__, url_prefix=config.path)
 @instagram_api.route('/')
 @cache.cached(timeout=3600)
 @token_required(config)
-def instagram():
+def index():
     response = requests.get(
         ("https://api.instagram.com/v1/users/"
          "self/media/recent/?access_token={0}").format(config.access_token)

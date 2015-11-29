@@ -20,7 +20,7 @@ stackoverflow_api = Blueprint('stackoverflow', __name__,
 @stackoverflow_api.route('/')
 @cache.cached(timeout=3600)
 @token_required(config)
-def stackoverflow():
+def index():
     response = requests.get(
         ("https://api.stackexchange.com/me/timeline?"
          "site=stackoverflow&access_token={0}&key={1}").format(
