@@ -8,7 +8,8 @@ import requests
 from flask import Blueprint, jsonify, request, redirect
 
 from me_api.cache import cache
-from me_api.middleware.utils import MiddlewareConfig
+from me_api.middleware.utils import (MiddlewareConfig, token_required,
+                                     reject_duplicated_auth)
 
 
 config = MiddlewareConfig('stackoverflow')
@@ -18,9 +19,8 @@ stackoverflow_api = Blueprint('stackoverflow', __name__,
 
 @stackoverflow_api.route('/')
 @cache.cached(timeout=3600)
+@token_required(config)
 def stackoverflow():
-    if not config.access_token:
-        return 'Need access token, please authenticate your app first.'
     response = requests.get(
         ("https://api.stackexchange.com/me/timeline?"
          "site=stackoverflow&access_token={0}&key={1}").format(
@@ -30,9 +30,8 @@ def stackoverflow():
 
 
 @stackoverflow_api.route('/login')
+@reject_duplicated_auth(config)
 def authorization():
-    if config.access_token:
-        return "You've already had an access token in the config file."
     authorization_url = 'https://stackexchange.com/oauth'
     return redirect(
         '{0}?client_id={1}&redirect_uri={2}&scope=no_expiry'.format(

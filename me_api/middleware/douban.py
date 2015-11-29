@@ -8,7 +8,8 @@ import requests
 from flask import Blueprint, jsonify, request, redirect
 
 from me_api.cache import cache
-from me_api.middleware.utils import MiddlewareConfig
+from me_api.middleware.utils import (MiddlewareConfig, token_required,
+                                     reject_duplicated_auth)
 
 
 config = MiddlewareConfig('douban')
@@ -17,9 +18,8 @@ douban_api = Blueprint('douban', __name__, url_prefix=config.path)
 
 @douban_api.route('/')
 @cache.cached(timeout=3600)
+@token_required(config)
 def douban():
-    if not config.access_token:
-        return 'Need access token, please authenticate your app first.'
     response = requests.get(
         ("https://api.douban.com/shuo/v2/statuses/"
          "user_timeline/{0}").format(config.me),
@@ -28,9 +28,8 @@ def douban():
 
 
 @douban_api.route('/login')
+@reject_duplicated_auth(config)
 def authorization():
-    if config.access_token:
-        return "You've already had an access token in the config file."
     authorization_url = 'https://www.douban.com/service/auth2/auth'
     return redirect(
         '{0}?client_id={1}&redirect_uri={2}&response_type={3}'.format(
