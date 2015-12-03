@@ -29,43 +29,40 @@ I'll take this one into details::
     #!/usr/bin/env python
     # -*- coding: utf-8 -*-
 
-    from __future__ import absolute_import, unicode_literals
+    from __future__ import absolute_import
 
     # Import modules you need.
     import os
     import requests
     from flask import Blueprint, jsonify, request, redirect
 
-    # Import config and cache.
-    from me_api.configs import Config
+    # Import cache, config and help utils.
     from me_api.cache import cache
+    from me_api.middleware.utils import (MiddlewareConfig, token_required,
+                                         reject_duplicated_auth)
 
     # Get configuration from our `modules.json`.
-    config = Config.modules['modules']['instagram']
-    path = config['path']
-    client_secret, access_token, client_id = (
-        config['data']['client_secret'],
-        config['data']['access_token'],
-        config['data']['client_id']
-    )
+    config = MiddlewareConfig('instagram')
     # Our main blueprint.
-    instagram_api = Blueprint('instagram', __name__, url_prefix=path)
+    instagram_api = Blueprint('instagram', __name__, url_prefix=config.path)
 
     # Get information once we have access token, remember to set
     # a proper timeout for the middleware cache.
     @instagram_api.route('/')
-    @cache.cached(timeout=3600)
-    def instagram():
+    @cache.cached(timeout=60*60)
+    @token_required(config)
+    def index():
         pass
 
     # Get authorization_code.
     @instagram_api.route('/login')
+    @reject_duplicated_auth(config)
     def authorization():
         pass
 
     # Get access token we need.
     @instagram_api.route('/login/redirect')
-    def get_access_toekn():
+    def get_access_token():
         pass
 
 2. Register the Blueprint
@@ -126,23 +123,23 @@ Here is the custom middleware for my blog: `blog.py`::
     #!/usr/bin/env python
     # -*- coding: utf-8 -*-
 
-    from __future__ import absolute_import, unicode_literals
+    from __future__ import absolute_import
 
     import requests
     from flask import Blueprint, jsonify
     from lxml import html
 
-    from me_api.configs import Config
     from me_api.cache import cache
-
-    # We only need a path.
-    path = Config.modules['modules']['blog']['path']
-    blog_api = Blueprint('blog', __name__)
+    from me_api.middleware.utils import MiddlewareConfig
 
 
-    @blog_api.route(path)
-    @cache.cached(timeout=3600)
-    def blog():
+    config = MiddlewareConfig('blog')
+    blog_api = Blueprint('blog', __name__, url_prefix=config.path)
+
+
+    @blog_api.route('/')
+    @cache.cached(timeout=60*60)
+    def index():
         try:
             response = requests.get('http://blog.lord63.com')
             tree = html.fromstring(response.text)
