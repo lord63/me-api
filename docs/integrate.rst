@@ -175,7 +175,7 @@ Let's assume that your api site is "http://api.foo.com", you host
 stack overflow on "/stackoverflow" path.
 
 1. Go to the `Stack Overflow Apps`_ page and create a new app. Make sure that
-   the `OAuth Domain` covers "http://api.foo.com/instagram/login/redirict"
+   the `OAuth Domain` covers "http://api.foo.com/stackoverflow/login/redirict"
    (site + path + '/login/redirect'). In this example, you can set it as
    "api.foo.com".
 
