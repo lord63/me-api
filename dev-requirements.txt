@@ -5,3 +5,4 @@ requests
 pytest
 pytest-pep8
 redis
+sphinx
