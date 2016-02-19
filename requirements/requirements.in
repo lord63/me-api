@@ -1,0 +1,6 @@
+flask
+flask-cache
+flask-script
+redis
+requests
+requests-oauthlib
