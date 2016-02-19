@@ -22,8 +22,8 @@ Let's assume that your api site is "http://api.foo.com", you host douban on
 "/douban" path.
 
 1. Go to the `Douban Apps`_ page and create a new app. Make sure that the
-`callback uri` equals to "http://api.foo.com/douban/login/redirict"
-(site + path + '/login/redirect').
+   `callback uri` equals to "http://api.foo.com/douban/login/redirict"
+   (site + path + '/login/redirect').
 
 2. Go to the app you just created, take down the `API Key` and `Secret`.
 
@@ -36,7 +36,7 @@ Let's assume that your api site is "http://api.foo.com", you host douban on
 then choose douban and input the data.
 
 5. Go to "http://api.foo.com/douban/login", authorize your app to get
-the `access_token`.
+   the `access_token`.
 
 6. Take down the `access_token` and fill it in our config file.
 
@@ -67,7 +67,7 @@ Let's assume that your api site is "http://api.foo.com", you host github on
 then choose github and follow the prompt.
 
 2. That's all! Restart the server, go to "http://api.foo.com/code"
-and have a check.
+   and have a check.
 
 Instagram
 ---------
@@ -87,8 +87,8 @@ Let's assume that your api site is "http://api.foo.com", you host instagram
 on "/instagram" path.
 
 1. Go to the `Instagram Clients`_ page and create a new client. Make sure that
-the `Redirect URI` equals to "http://api.foo.com/instagram/login/redirict"
-(site + path + '/login/redirect').
+   the `Redirect URI` equals to "http://api.foo.com/instagram/login/redirict"
+   (site + path + '/login/redirect').
 
 2. Go to the app you just created, take down the `Client ID` and `Client Secret`.
 
@@ -99,7 +99,7 @@ the `Redirect URI` equals to "http://api.foo.com/instagram/login/redirict"
 then choose instagram and input the data.
 
 4. Go to "http://api.foo.com/instagram/login", authorize your app to get
-the `access_token`.
+   the `access_token`.
 
 5. Take down the `access_token` and fill it in our config file.
 
@@ -129,7 +129,7 @@ Let's assume that your api site is "http://api.foo.com", you host keybase on
 then choose keybase and follow the prompt.
 
 2. That's all! Restart the server, go to "http://api.foo.com/keybase"
-and have a check.
+   and have a check.
 
 Medium
 ------
@@ -154,7 +154,7 @@ Let's assume that your api site is "http://api.foo.com", you host medium on
 then choose medium and follow the prompt.
 
 2. That's all! Restart the server, go to "http://api.foo.com/medium"
-and have a check.
+   and have a check.
 
 Stack Overflow
 --------------
@@ -175,12 +175,12 @@ Let's assume that your api site is "http://api.foo.com", you host
 stack overflow on "/stackoverflow" path.
 
 1. Go to the `Stack Overflow Apps`_ page and create a new app. Make sure that
-the `OAuth Domain` covers "http://api.foo.com/instagram/login/redirict"
-(site + path + '/login/redirect'). In this example, you can set it as
-"api.foo.com".
+   the `OAuth Domain` covers "http://api.foo.com/instagram/login/redirict"
+   (site + path + '/login/redirect'). In this example, you can set it as
+   "api.foo.com".
 
 2. Go to the app you just created, take down the `Client Id`, `Client Secret`
-and `Key`.
+   and `Key`.
 
 3. Back to me-api, add the stack overflow middleware to your config file::
 
@@ -189,7 +189,7 @@ and `Key`.
 then choose stackoverflow and input the data.
 
 4. Go to "http://api.foo.com/stackoverflow/login", authorize your app to get
-the `access_token`.
+   the `access_token`.
 
 5. Take down the `access_token` and fill it in our config file.
 
@@ -213,8 +213,8 @@ Let's assume that your api site is "http://api.foo.com", you host twitter on
 1. Go to the `Twitter Apps`_ page and create a new app.
 
 2. Go to the app you just created, click the 'Keys and Access Tokens' tab, take down
-the `Consumer Key (API Key)`, `Consumer Secret (API Secret)`, `Access Token` and
-`Access Token Secret`.
+   the `Consumer Key (API Key)`, `Consumer Secret (API Secret)`, `Access Token` and
+   `Access Token Secret`.
 
 3. Back to me-api, add the twitter middleware to your config file::
 
