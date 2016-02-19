@@ -195,6 +195,34 @@ the `access_token`.
 
 6. Restart the server, go to "http://api.foo.com/stackoverflow" and have a check.
 
+Twitter
+-------
+
+Short Introduction about Twitter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Twitter`_ (/ˈtwɪtər/) is an online social networking service that enables users
+to send and read short messages called "tweets".  [7]_
+
+Integrate Guide
+^^^^^^^^^^^^^^^
+
+Let's assume that your api site is "http://api.foo.com", you host twitter on
+"/twitter" path.
+
+1. Go to the `Twitter Apps`_ page and create a new app.
+
+2. Go to the app you just created, click the 'Keys and Access Tokens' tab, take down
+the `Consumer Key (API Key)`, `Consumer Secret (API Secret)`, `Access Token` and
+`Access Token Secret`.
+
+3. Back to me-api, add the twitter middleware to your config file::
+
+    $ python generate add
+
+then choose twitter and input the data.
+
+4. Restart the server, go to "http://api.foo.com/twitter" and have a check.
 
 .. _Douban: http://www.douban.com/
 .. [1] https://en.wikipedia.org/wiki/Douban
@@ -211,3 +239,6 @@ the `access_token`.
 .. _`Stack Overflow`: http://stackoverflow.com/
 .. [6] https://en.wikipedia.org/wiki/Stack_Overflow
 .. _`Stack Overflow Apps`: http://stackapps.com/apps/oauth/register
+.. _`Twitter`: https://twitter.com/
+.. [7] https://en.wikipedia.org/wiki/Twitter
+.. _`Twitter Apps`: https://apps.twitter.com/
