@@ -60,7 +60,16 @@ TEMPLATE = {
             "client_secret": "Input the 'Client Secret' for stackoverflow: ",
             "access_token": ""
         }
+    },
+    "twitter": {
+        "path": "Input the path(e.g. /twitter): ",
+        "data": {
+            "consumer_key": "Input the 'Consumer Key (API Key)' for twitter: ",
+            "consumer_secret": "Input the 'Consumer Secret (API Secret)' for twitter: ",
+            "access_token": "Input the 'Access Token' for twitter: ",
+            "access_token_secret": "Input the 'Access Token Secret' for twitter: "
     }
+}
 }
 
 

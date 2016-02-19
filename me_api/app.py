@@ -19,6 +19,7 @@ middlewares = {
     'keybase': 'me_api.middleware.keybase:keybase_api',
     'medium': 'me_api.middleware.medium:medium_api',
     'stackoverflow': 'me_api.middleware.stackoverflow:stackoverflow_api',
+    'twitter': 'me_api.middleware.twitter:twitter_api',
 }
 
 

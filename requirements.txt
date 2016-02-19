@@ -2,4 +2,5 @@ flask
 flask-script
 flask-cache
 requests
+requests-oauthlib
 redis
