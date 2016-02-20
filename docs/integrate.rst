@@ -144,6 +144,11 @@ example of social journalism. [5]_
 Integrate Guide
 ^^^^^^^^^^^^^^^
 
+.. admonition:: WARNING
+
+   UPDATED on 2016-02-20: the way to fetch the lastest posts can't work any more,
+   please help. Related discussions are at `issue #8`_.
+
 Let's assume that your api site is "http://api.foo.com", you host medium on
 "/medium" path.
 
@@ -236,6 +241,7 @@ then choose twitter and input the data.
 .. [4] https://keybase.io/
 .. _Medium: https://medium.com/
 .. [5] https://en.wikipedia.org/wiki/Medium_%28service%29
+.. _`issue #8`: https://github.com/lord63/me-api/issues/8
 .. _`Stack Overflow`: http://stackoverflow.com/
 .. [6] https://en.wikipedia.org/wiki/Stack_Overflow
 .. _`Stack Overflow Apps`: http://stackapps.com/apps/oauth/register
