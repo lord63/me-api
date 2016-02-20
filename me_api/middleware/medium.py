@@ -19,7 +19,7 @@ medium_api = Blueprint('medium', __name__, url_prefix=config.path)
 def index():
     try:
         response = requests.get(
-            'https://medium.com/{0}?format=json'.format(config.username))
+            'https://medium.com/{0}?format=json'.format(config.me))
     except requests.RequestException as error:
         return jsonify(error_message=str(error.message))
     if response.status_code == 200:
