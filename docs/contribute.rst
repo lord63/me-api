@@ -27,7 +27,7 @@ Send A Pull Request
 
     $ virtualenv venv
     $ source ./venv/bin/activate
-    (venv)$ pip install -r dev-requirements.txt
+    (venv)$ pip install -r requirements/dev-requirements.txt
 
 * Begin your work and once finished, make sure that the tests passed::
 

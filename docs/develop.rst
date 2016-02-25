@@ -5,11 +5,11 @@ Develop a new middleware
 
 Since many websites use OAuth2_ for their APIs, many middlewares seems
 very similar to each other. If you've created a middleware, it should
-be easy for you to create another one. You can take a look at `douban.py`
+be easy for you to create another one. You can take a look at `instagram.py`
 and `stackoverflow.py`.
 
 For these don't need access token, can't be esay any more. Take a look
-at `github.py`, `keybase.py` and `medium.py`.
+at `github.py` and `keybase.py`.
 
 Build a universal middleware
 ----------------------------
