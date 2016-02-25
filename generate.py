@@ -20,7 +20,7 @@ TEMPLATE = {
     "douban": {
         "path": "Input the path(e.g. /douban): ",
         "data": {
-            "me": "Input the username(e.g. xvid73): ",
+            "me": "Input the username(e.g. lord63): ",
             "client_id": "Input the 'API Key' for douban: ",
             "client_secret": "Input the 'Secret' for douban: ",
             "access_token": ""
@@ -68,18 +68,19 @@ TEMPLATE = {
             "consumer_secret": "Input the 'Consumer Secret (API Secret)' for twitter: ",
             "access_token": "Input the 'Access Token' for twitter: ",
             "access_token_secret": "Input the 'Access Token Secret' for twitter: "
+        }
     }
-}
 }
 
 
 def config_module(module):
     """Config module from user input."""
     default_conf = TEMPLATE[module]
-    default_conf['path'] = path.join('/',
-                                     get_input(default_conf['path']).strip())
+    default_conf['path'] = path.join(
+        '/', get_input(default_conf['path']).strip())
     for key, value in default_conf['data'].items():
-        if key == 'access_token': continue
+        if key == 'access_token':
+            continue
         default_conf['data'][key] = get_input(value).strip()
     return default_conf
 
