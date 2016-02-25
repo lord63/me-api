@@ -39,3 +39,12 @@ run it using::
     (venv)$ python manage.py runserver
 
 Open 'localhost:5000' in your broswer and take a look.
+
+Security
+--------
+
+It is suggested to use HTTPS for your site that powered by me-api when
+authenticating the middlewares. Also, when configure the new app in the
+app page(e.g. twitter's app page), remember to grant your app access only
+to the resources that they really need, high permission is not necessary
+sometimes(e.g. can delete or edit your content).

@@ -26,6 +26,12 @@ Me-api is still on under heavy development, please contribute. You can
 help add some new middlewares. Please head over to `Development guide`_
 to get more details.
 
+Tips
+----
+
+It's suggested to watch this repo so you can get the notifications when
+new middlwares added, bug fixed and security issues found.
+
 Credits
 -------
 
