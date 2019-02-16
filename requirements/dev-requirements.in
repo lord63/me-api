@@ -4,6 +4,6 @@ flask-script
 pytest
 pytest-pep8
 redis
-requests
+requests>=2.20.0
 requests-oauthlib
 sphinx
